@@ -1,0 +1,40 @@
+PAKET HERO LOBBY — WEBSITE RETRO
+
+Hero dan skin yang dipasang:
+1. Alfa — Nana, Slumber Party (Elite)
+2. Anak e Pak Yon — Sun, Monkey King (Default)
+3. Zubair — Ling, Serene Plume (Collector)
+4. Faruk — Balmond, Bloody Beast (Default)
+
+PENTING
+- Empat file hero PNG adalah gambar persis dari unggahan kamu. Tidak diganti atau dibuat ulang.
+- Efeknya meniru nuansa layar lobby: gerakan idle/floating ringan, panggung bercahaya, partikel, kilau, dan sedikit kemiringan kartu saat kursor diarahkan.
+- Karena sumbernya gambar 2D tunggal, karakter bergerak sebagai satu gambar; bukan animasi tulang/3D asli game.
+- File hero dan addon dipisah agar website utama tidak perlu dirombak.
+
+CARA MEMASANG DI GITHUB
+1. Ekstrak ZIP ini.
+2. Buka repository: sayazubair005-gif/JASA-PEMBUATAN.
+3. Upload 6 file ini ke folder utama/root repository (sejajar dengan index.html):
+   - hero-alfa.png
+   - hero-anak-e-pak-yon.png
+   - hero-zubair.png
+   - hero-faruk.png
+   - hero-lobby-addon.css
+   - hero-lobby-addon.js
+4. Buka index.html di GitHub, lalu klik ikon pensil/Edit.
+5. Cari </head>. Tepat DI ATASNYA, tambahkan:
+   <link rel="stylesheet" href="hero-lobby-addon.css">
+6. Cari </body>. Tepat DI ATASNYA, tambahkan:
+   <script src="hero-lobby-addon.js"></script>
+7. Klik Commit changes / Simpan perubahan.
+8. Buka website RETRO dan tekan Ctrl + F5.
+
+CATATAN
+- Jangan hapus baris var TM yang sudah ada.
+- Jangan hapus developer-1.jpg sampai developer-4.jpg. File itu dipakai untuk avatar developer kecil.
+- Jangan mengubah nama file hero. Nama file harus persis seperti di atas.
+- Jika belum memasang semua enam file dan dua baris pemanggilnya, tampilan website belum berubah.
+
+PREVIEW
+Buka preview-lobby.html dari folder hasil ekstrak untuk melihat contoh lobby sebelum mengunggah file.
