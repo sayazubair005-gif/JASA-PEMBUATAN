@@ -237,3 +237,41 @@
   background: transparent !important;
   background-image: none !important;
 }
+/* HERO ONLY MODE */
+.hero-lobby-card {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  overflow: visible !important;
+}
+
+.hero-lobby-card > *:not(.hero-lobby-stage) {
+  display: none !important;
+}
+
+.hero-lobby-stage {
+  background: transparent !important;
+  background-image: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  margin: 0 !important;
+  overflow: visible !important;
+}
+
+.hero-lobby-stage::before,
+.hero-lobby-stage::after,
+.hero-lobby-orb,
+.hero-lobby-sweep,
+.hero-lobby-watermark {
+  display: none !important;
+}
+
+.hero-lobby-art {
+  filter: none !important;
+  animation: hero-idle var(--idle-duration) ease-in-out infinite !important;
+}
+
+.hero-lobby-grid {
+  gap: 10px !important;
+}
