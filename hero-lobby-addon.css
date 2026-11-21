@@ -228,3 +228,12 @@
 .hero-lobby-card[data-skin="balmond"] .hero-lobby-stage {
   background: transparent !important;
 }
+/* HILANGKAN WARNA LATAR KARTU */
+.hero-lobby-card {
+  background: transparent !important;
+}
+
+.hero-lobby-stage {
+  background: transparent !important;
+  background-image: none !important;
+}
