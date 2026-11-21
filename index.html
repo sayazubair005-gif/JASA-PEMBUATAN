@@ -256,6 +256,8 @@ if(!R){
 addEventListener('pointerdown',function(e){for(var i=0;i<10;i++){var s=document.createElement('i'),a=Math.random()*6.283,d=30+Math.random()*50;s.className='sp';s.style.cssText='left:'+e.clientX+'px;top:'+e.clientY+'px;--x:'+Math.cos(a)*d+'px;--y:'+Math.sin(a)*d+'px';s.addEventListener('animationend',function(){this.remove()});document.body.appendChild(s)}});
 $$('.btn').forEach(function(b){b.addEventListener('pointermove',function(e){if(e.pointerType==='touch')return;var r=b.getBoundingClientRect();b.style.translate=(e.clientX-r.left-r.width/2)*.22+'px '+(e.clientY-r.top-r.height/2)*.3+'px'});b.addEventListener('pointerleave',function(){b.style.translate='0 0'})})}
 })();
+</script>
 <script src="hero-lobby-addon.js"></script>
 </body>
 </html>
+
