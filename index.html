@@ -31,15 +31,31 @@ body.lock{overflow:hidden}
 h1,h2,h3{font-family:'Space Grotesk',Inter,sans-serif;margin:0;line-height:1.1}
 #bg{position:fixed;inset:0;width:100%;height:100%;z-index:-1}
 #bar{position:fixed;top:0;left:0;height:3px;width:100%;transform-origin:0 50%;transform:scaleX(0);background:linear-gradient(90deg,var(--blue),var(--acc));z-index:60}
-#ld{position:fixed;inset:0;z-index:100;background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;transition:opacity .6s,visibility .6s}
+#ld{position:fixed;inset:0;z-index:100;background:radial-gradient(ellipse at 50% 45%,#321326 0%,#170b18 48%,#09070c 100%);color:#f8eaf2;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;padding:28px;overflow:hidden;transition:opacity .85s ease,visibility .85s ease}
+#ld:before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent 0 3px,rgba(255,255,255,.018) 4px);pointer-events:none}
 #ld.out{opacity:0;visibility:hidden}
-.ring{position:relative;width:84px;height:84px;border-radius:50%;border:3px solid var(--line);border-top-color:var(--acc);border-right-color:var(--blue);animation:spin 1s linear infinite}
-.ring::after{content:"";position:absolute;inset:14px;border-radius:50%;border:3px solid var(--line);border-bottom-color:var(--acc);animation:spin 1.6s linear infinite reverse}
-@keyframes spin{to{transform:rotate(360deg)}}
-.ld-t{font:700 clamp(22px,5vw,34px)/1 'Space Grotesk',sans-serif;letter-spacing:.14em;text-align:center}
-.ld-s{font:500 14px 'JetBrains Mono',monospace;color:var(--mute)}
-.ld-bar{width:min(280px,70vw);height:4px;background:var(--line);border-radius:4px;overflow:hidden}
-.ld-bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--blue),var(--acc))}
+.ld-kicker{display:flex;align-items:center;gap:11px;margin-bottom:34px;color:#f7dce9;font:600 11px 'JetBrains Mono',monospace;letter-spacing:.22em;opacity:0;animation:ldRise .7s .15s ease forwards}
+.ld-kicker .lg{width:29px;height:29px;background:var(--logo) center/contain no-repeat;filter:drop-shadow(0 0 9px rgba(255,100,174,.45))}
+.ld-kicker i{font-style:normal;color:#9a8798;letter-spacing:.12em}
+.ld-frame{position:relative;width:min(650px,86vw);padding:clamp(30px,7vw,68px) 18px clamp(25px,5vw,46px);text-align:center;border:1px solid rgba(105,246,228,.68);box-shadow:0 0 24px rgba(105,246,228,.08),inset 0 0 24px rgba(105,246,228,.035);opacity:0;transform:translateY(18px) scale(.97);animation:ldFrameIn .9s .35s cubic-bezier(.2,.8,.2,1) forwards}
+.ld-corner{position:absolute;width:9px;height:9px;background:#72f5e4;box-shadow:0 0 12px #72f5e4}
+.ld-corner.c1{top:-4px;left:-4px}.ld-corner.c2{top:-4px;right:-4px}.ld-corner.c3{bottom:-4px;left:-4px}.ld-corner.c4{bottom:-4px;right:-4px}
+.ld-word{font:400 clamp(62px,15vw,132px)/.92 Georgia,'Times New Roman',serif;letter-spacing:-.055em;color:#ff6fae;text-shadow:0 0 28px rgba(255,91,164,.2);animation:ldGlow 2.2s ease-in-out infinite alternate}
+.ld-word span{color:#75f4e4}
+.ld-subtitle{margin-top:21px;color:#d9c6d2;font:500 10px 'JetBrains Mono',monospace;letter-spacing:.42em}
+.ld-scan{position:absolute;left:0;right:0;top:0;height:1px;background:linear-gradient(90deg,transparent,#8ffff0,transparent);box-shadow:0 0 12px #8ffff0;animation:ldScan 2.4s .7s ease-in-out infinite}
+.ld-meta{width:min(650px,86vw);display:flex;align-items:center;justify-content:space-between;margin-top:30px;color:#bca8b7;font:500 10px 'JetBrains Mono',monospace;letter-spacing:.12em}
+.ld-meta b{color:#ff83b8;font-size:13px;font-weight:600}
+.ld-meta small{font-size:9px;margin-left:2px;color:#a9eee4}
+.ld-bar{width:min(650px,86vw);height:2px;margin-top:12px;background:rgba(255,255,255,.12);overflow:hidden}
+.ld-bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#ff6fae,#77f4e4);box-shadow:0 0 12px rgba(119,244,228,.65)}
+.ld-foot{margin-top:24px;color:#796777;font:500 9px 'JetBrains Mono',monospace;letter-spacing:.28em;opacity:0;animation:ldRise .7s .75s ease forwards}
+@keyframes ldRise{to{opacity:1;transform:translateY(0)}}
+@keyframes ldFrameIn{to{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes ldGlow{from{text-shadow:0 0 12px rgba(255,91,164,.12)}to{text-shadow:0 0 34px rgba(255,91,164,.48)}}
+@keyframes ldScan{0%{transform:translateY(0);opacity:0}15%{opacity:1}85%{opacity:.8}100%{transform:translateY(100%);opacity:0}}
+@media(max-width:480px){.ld-kicker{margin-bottom:26px;font-size:9px}.ld-frame{padding:42px 12px 32px}.ld-subtitle{font-size:8px;letter-spacing:.3em}.ld-meta{font-size:8px}.ld-foot{font-size:8px;letter-spacing:.18em}}
+@media(prefers-reduced-motion:reduce){#ld *{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
 header{position:fixed;top:0;left:0;right:0;z-index:50;padding-top:env(safe-area-inset-top,0px)}
 .nav{width:calc(100% - 24px);max-width:1120px;margin:12px auto 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px 24px;padding:10px 20px;border:1px solid var(--line);border-radius:16px;background:var(--nav);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
 .logo{display:flex;align-items:center;gap:10px;font:700 20px 'Space Grotesk',sans-serif;letter-spacing:.08em;color:var(--ink);text-decoration:none}
@@ -135,20 +151,23 @@ h2{font-size:clamp(30px,5vw,48px);margin:8px 0 14px}
 .cta .lead{margin:0 auto 28px}
 footer{text-align:center;color:var(--mute);font-size:14px;padding:28px 20px calc(28px + env(safe-area-inset-bottom,0px))}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.rv,.rv.l,.rv.r,.rv.z{opacity:1;translate:none;scale:1;filter:none}.w>span{transform:none}.ln>span,.sub,.act{transform:none;opacity:1}html{scroll-behavior:auto}}
-
-/* KARTU TANPA FOTO: logo RETRO asli tetap menggunakan --logo */
-.ph.no-photo{display:grid;place-items:center;min-height:150px}
-.ph.no-photo>span{font-size:48px}
-.cut.no-photo{display:grid;place-items:center;min-height:145px}
-.avatar-mark{display:grid;place-items:center;width:88px;height:88px;border:1px solid var(--line);border-radius:24px;font:700 25px 'JetBrains Mono',monospace;color:var(--accent);background:linear-gradient(135deg,rgba(47,110,255,.15),rgba(140,90,240,.12))}
-.contact-list{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
-.contact-list .btn{margin:0}
-@media(max-width:600px){.contact-list{flex-direction:column}.contact-list .btn{width:100%;text-align:center}}
 </style>
 <noscript><style>#ld{display:none}.rv,.sub,.act{opacity:1;translate:none;transform:none}.ln>span{transform:none}</style></noscript>
 </head>
 <body class="lock">
-<div id="ld"><div class="lw"><div class="ring"></div><span class="lg" role="img" aria-label="Logo RETRO"></span></div><div class="ld-t">TUGAS KELOMPOK 4</div><div class="ld-s">memuat RETRO <b id="pc">0</b>%</div><div class="ld-bar"><i id="lb"></i></div></div>
+<div id="ld" aria-label="RETRO sedang dimuat">
+  <div class="ld-kicker"><span class="lg" role="img" aria-label="Logo RETRO"></span><span>RETRO <i> / DIGITAL STUDIO</i></span></div>
+  <div class="ld-frame">
+    <span class="ld-corner c1"></span><span class="ld-corner c2"></span>
+    <span class="ld-corner c3"></span><span class="ld-corner c4"></span>
+    <div class="ld-word">RETRO<span>.</span></div>
+    <div class="ld-subtitle">DIGITAL EXPERIENCE</div>
+    <div class="ld-scan"></div>
+  </div>
+  <div class="ld-meta"><span>MENYIAPKAN WEBSITE</span><b><span id="pc">0</span><small>%</small></b></div>
+  <div class="ld-bar"><i id="lb"></i></div>
+  <div class="ld-foot">DESIGN · DEVELOP · CREATE</div>
+</div>
 <div id="bar"></div>
 <canvas id="bg" aria-hidden="true"></canvas><div id="cg"></div>
 <header><div class="nav">
@@ -170,7 +189,7 @@ footer{text-align:center;color:var(--mute);font-size:14px;padding:28px 20px calc
 <section id="tentang"><div class="wrap"><div class="rv"><span class="tag">// tentang</span><h2>Tentang RETRO</h2><p class="lead">RETRO adalah jasa pembuatan website yang dikerjakan oleh Tim Developer Kelompok 4. Kami membantu bisnis dan organisasi tampil profesional di internet, dari konsultasi sampai website tayang.</p><h3 class="sh">Cara kerja kami</h3></div><div class="grid" id="tg"></div></div></section>
 <section id="faq"><div class="wrap"><div class="rv"><span class="tag">// faq</span><h2>Pertanyaan yang sering diajukan</h2></div><div class="faqs" id="fg"></div></div></section>
 <section id="tim"><div class="wrap"><div class="rv"><span class="tag">// developer</span><h2>Dikembangkan oleh tim developer</h2><p class="lead">Tim di balik RETRO, Tugas Kelompok 4.</p></div><div class="grid" id="mg"></div></div></section>
-<section id="kontak"><div class="wrap"><div class="card cta rv"><span class="tag">// hubungi kami</span><h2>Siap punya website untuk bisnis Anda?</h2><p class="lead">Konsultasi awal gratis. Hubungi RETRO melalui kanal berikut.</p><div class="contact-list"><a class="btn" href="https://www.instagram.com/zubeng_27/" target="_blank" rel="noopener">Instagram: @zubeng_27</a><a class="btn ghost" href="https://wa.me/628992611112" target="_blank" rel="noopener">WhatsApp: 08992611112</a><a class="btn ghost" href="mailto:sayazubair005@gmail.com">Gmail: sayazubair005@gmail.com</a></div></div></div></section>
+<section id="kontak"><div class="wrap"><div class="card cta rv"><span class="tag">// hubungi kami</span><h2>Siap punya website untuk bisnis Anda?</h2><p class="lead">Konsultasi awal gratis lewat Instagram.</p><a class="btn" href="https://instagram.com/zubeng_27" target="_blank" rel="noopener">Chat Instagram @zubeng_27</a></div></div></section>
 </main>
 <footer>© 2026 RETRO. Dikembangkan oleh Tim Developer, Tugas Kelompok 4.</footer>
 <script>
@@ -190,9 +209,9 @@ function $$(s){return[].slice.call(document.querySelectorAll(s))}
 function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
 function put(id,a,f){$(id).innerHTML=a.map(f).join('')}
 put('#kg',KE,function(x){return '<div class="card rv"><span class="ic">'+x[0]+'</span><h3>'+x[1]+'</h3><p>'+x[2]+'</p></div>'});
-put('#sg',SV,function(x){return '<div class="card rv"><div class="ph no-photo"><span>'+x[0]+'</span></div><h3>'+x[1]+'</h3><p>'+x[2]+'</p></div>'});
+put('#sg',SV,function(x){return '<div class="card rv"><div class="ph"><span>'+x[0]+'</span><img src="images/'+x[3]+'" alt="'+x[1]+'" loading="lazy" onerror="this.remove()"></div><h3>'+x[1]+'</h3><p>'+x[2]+'</p></div>'});
 put('#pg',PK,function(x){return '<div class="card pk rv'+(x[3]?' hl':'')+'">'+(x[3]?'<span class="badge">Rekomendasi</span>':'')+'<h3>'+x[0]+'</h3><div class="price"><small>mulai dari</small>'+x[1]+'</div><ul>'+x[2].map(function(l){return '<li>'+l+'</li>'}).join('')+'</ul></div>'});
-put('#mg',TM,function(x){return '<div class="card tm rv"><div class="cut no-photo"><span class="avatar-mark">&lt;/&gt;</span></div><h3>'+x[0]+'</h3><span class="role">'+x[1]+'</span></div>'});
+put('#mg',TM,function(x){return '<div class="card tm rv"><div class="cut"><img src="'+x[2]+'" alt="'+x[0]+'" style="--h:'+x[3]+'%"></div><h3>'+x[0]+'</h3><span class="role">'+x[1]+'</span></div>'});
 put('#fg',FQ,function(x){return '<details class="card faq rv"><summary>'+x[0]+'</summary><p>'+x[1]+'</p></details>'});
 put('#tg',ST,function(x){return '<div class="card rv"><div class="n">'+x[0]+'</div><h3>'+x[1]+'</h3><p>'+x[2]+'</p></div>'});
 
